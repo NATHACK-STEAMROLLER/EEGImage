@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>996</width>
+    <height>663</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>1011</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(D:/Downloads/neuralimage.gif);</string>
+    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>530</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #fff;</string>
+     </property>
+     <property name="text">
+      <string>BrainBrush</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>629</y>
+      <width>991</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #000;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>996</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuTEAM">
+    <property name="title">
+     <string>TEAM</string>
+    </property>
+    <addaction name="actionMingbo"/>
+    <addaction name="actionEdward"/>
+    <addaction name="actionAndy"/>
+    <addaction name="actionLouis"/>
+    <addaction name="actionJosh"/>
+   </widget>
+   <addaction name="menuTEAM"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionMingbo">
+   <property name="text">
+    <string>Mingbao</string>
+   </property>
+  </action>
+  <action name="actionEdward">
+   <property name="text">
+    <string>Edward</string>
+   </property>
+  </action>
+  <action name="actionAndy">
+   <property name="text">
+    <string>Andy</string>
+   </property>
+  </action>
+  <action name="actionLouis">
+   <property name="text">
+    <string>Louis</string>
+   </property>
+  </action>
+  <action name="actionJosh">
+   <property name="text">
+    <string>Josh</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
