@@ -1,0 +1,16 @@
+<!-- index.html -->
+<html>
+<head>
+    <title>Random Image Generator</title>
+</head>
+<body>
+    <h1>Random Image Generator</h1>
+    <p>Enter a string and get a random image based on it.</p>
+    <!-- <li><a href="generate">a</a></li> -->
+    <form action="generate" method="post">
+        {% csrf_token %}
+        <input type="text" name="input_string" placeholder="Enter a string">
+        <input type="submit" value="Generate">
+    </form>
+</body>
+</html>
