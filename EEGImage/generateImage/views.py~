@@ -36,12 +36,20 @@ def start_page(request):
     return render(request, 'start_page.html')
 
 def countdown_page(request):
+    return render(request, 'countdown_page.html')
+
+def image_processing(request):
+    return render(request, 'image_processing.html')
+
+
+def image_display(request):
     # Simulate a 5-second countdown
     # for i in range(5, 0, -1):
     #     time.sleep(1)
 
     command = 'cd ../visualizing; ./start.sh'
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               universal_newlines=True)
 
     path = '~/EEGImage/EEGImage/generateImage/static/cur_img.txt'
     expanded = os.path.expanduser(path)
@@ -51,11 +59,11 @@ def countdown_page(request):
 
     random_image_url = "https://picsum.photos/200/300"  # Example URL
 
-    
     # add to database
     image = Image(image_url=random_image_url)
     image.save()
-    return render(request, 'countdown_page.html', {'random_image_url': random_image_url})
+    return render(request, 'image_display.html', {'random_image_url': random_image_url})
+
 
 def history(request):
     images = Image.objects.all().values()
