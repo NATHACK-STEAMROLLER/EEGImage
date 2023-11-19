@@ -1,19 +1,96 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url('https://media.springernature.com/w580h326/nature-cms/uploads/collections/A84880_SREP_TOP_100_NEUROSCIENCE_HERO_IMAG_1200x675px_Proof1-808a70ae0f814e8b4c19fd1294745bac.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: backgroundAnimation 20s linear infinite;
+        }
 
-<h1>History</h1>
+        h1 {
+            color: white;
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        h1::before {
+            content: "\1F4D6"; /* Unicode for textbook icon */
+            margin-right: 10px;
+            font-size: 40px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        img {
+            margin: 10px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            font-family: "Times New Roman", serif;
+            font-size: 20px;
+            padding: 15px 30px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50; /* Green background color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease; /* Add a smooth transition on hover */
+        }
+
+        button:hover {
+            background: #45a049; /* Darker green color on hover */
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <title>History Page</title>
+</head>
+<body>
+    <h1>History</h1>
   
-<ul>
-  {% for x in images %}
-  <img src="{{ x.image_url }}" alt="history_image">
-  {% endfor %}
-</ul>
-<button onclick="returnBack()">Return</button>
-<script>
-    function returnBack() {
-        window.location.href = "{% url 'start_page' %}";
-    }
-</script>
+    <ul>
+        {% for x in images %}
+            <img src="{{ x.image_url }}" alt="history_image">
+        {% endfor %}
+    </ul>
+
+    <button onclick="returnBack()">Return</button>
+
+    <script>
+        function returnBack() {
+            window.location.href = "{% url 'start_page' %}";
+        }
+    </script>
 </body>
 </html>
+
