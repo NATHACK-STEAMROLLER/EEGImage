@@ -9,7 +9,28 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 100px;
+            background-image: url('https://media.springernature.com/w580h326/nature-cms/uploads/collections/A84880_SREP_TOP_100_NEUROSCIENCE_HERO_IMAG_1200x675px_Proof1-808a70ae0f814e8b4c19fd1294745bac.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: backgroundAnimation 20s linear infinite;
+        }
+
+        button {
+            font-family: verdana;
+            font-size: 50px;
+            size: 100px;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            background: none;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Times New Roman", serif;
         }
 
         #timer {
@@ -52,6 +73,12 @@
                 opacity: 1
             }
         }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
 
@@ -62,9 +89,13 @@
     </div>
 
     <div id="result">
-        <img src="{{ random_image_url }}" alt="Image after countdown">
-        <button onclick="retry()">Retry</button>
+        <img src="{{ random_image_url }}" 
+        width = "500"
+        height = "800"
+        alt="Image after countdown">
+        <button id="startButton" onclick="retry()">Retry</button>
     </div>
+    
 
     <script>
         function retry() {
@@ -80,12 +111,14 @@
             startCountdown();
         };
         let clock = document.getElementById('seconds');
+        clock.style.color = 'red';
         let secondsRemaining = 5;
         clock.innerText = secondsRemaining;
         clock.classList.add('animation');
         const myInterval = setInterval(() => {
             secondsRemaining--;
             clock.innerText = secondsRemaining;
+
             if (!secondsRemaining)
                 stopAnimation();
         }, 1000)
