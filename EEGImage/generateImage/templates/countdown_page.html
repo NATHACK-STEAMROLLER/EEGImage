@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 100px;
+    }
+
+    #timer {
+      font-size: 2em;
+      color: #333;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="timer">5</div>
+<div id="result">
+  <img src="{{ random_image_url }}" alt="Image after countdown">
+  <button onclick="retry()">Retry</button>
+</div>
+
+<script>
+    function retry() {
+        window.location.href = "{% url 'start_page' %}";
+    }
+  // Function to update the countdown timer
+  function updateTimer(seconds) {
+    document.getElementById('timer').textContent = seconds;
+  }
+
+  // Function to show the result (image) after the countdown
+  function showResult() {
+    document.getElementById('result').style.display = 'block';
+  }
+
+  // Function to start the countdown
+  function startCountdown() {
+    var seconds = 5;
+
+    // Update the timer every second
+    var countdownInterval = setInterval(function() {
+      updateTimer(seconds);
+
+      // Decrease the remaining seconds
+      seconds--;
+
+      // If the countdown reaches 0, stop the interval and show the result
+      if (seconds < 0) {
+        clearInterval(countdownInterval);
+        showResult();
+      }
+    }, 1000);
+  }
+
+  // Start the countdown when the page loads
+  window.onload = function() {
+    startCountdown();
+  };
+</script>
+
+</body>
+</html>
