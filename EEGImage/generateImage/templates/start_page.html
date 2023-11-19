@@ -1,63 +1,72 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style2.css' %}" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
             overflow: hidden;
-            background-image: url('https://media.springernature.com/w580h326/nature-cms/uploads/collections/A84880_SREP_TOP_100_NEUROSCIENCE_HERO_IMAG_1200x675px_Proof1-808a70ae0f814e8b4c19fd1294745bac.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            animation: backgroundAnimation 20s linear infinite;
         }
+
+
 
         #introText {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: black;
             font-family: "Times New Roman", serif;
             font-size: 50px; /* Adjusted font size */
             opacity: 0;
-            animation: fadeInOut 3s ease-in-out 1s forwards;
+            animation: fadeInOut 4s ease-in-out 1s forwards;
         }
 
-        #logo {
+        #introText1 {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
             font-family: "Times New Roman", serif;
-            font-size: 30px;
+            font-size: 50px; /* Adjusted font size */
+            opacity: 0;
+            animation: fadeInOut 4s ease-in-out 5s forwards;
         }
 
         #teamButton {
             position: absolute;
             top: 20px;
-            right: 20px;
-            font-size: 24px;
-            font-family: "Times New Roman", serif;
-            background: none;
-            color: white;
+            left: 20px;
+            width: 100px; /* Adjust the width of your logo */
+            height: 100px; /* Adjust the height of your logo */
+            background: url("{% static 'logo.png' %}") no-repeat center center;
+            background-size: cover;
             border: none;
             cursor: pointer;
         }
 
-        #teamList {
+        #teamList{
             display: none;
             position: absolute;
-            top: 60px;
-            right: 20px;
+            top: 30px;
+            left: 120px;
             max-height: 200px;
             overflow-y: auto;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        #teamList li {
+            text-align: left; /* Align list items to the left */
+            margin-bottom: 8px; /* Add some spacing between list items */
         }
 
         #startButton,
@@ -71,7 +80,7 @@
             transform: translate(-50%, -50%);
             padding: 15px 30px;
             background: none;
-            color: #fff;
+            color: #000;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -99,15 +108,16 @@
 </head>
 <body>
     <div id="introText">Welcome to BrainBrush</div>
-    <div id="logo">Brain Brush</div>
-    <button id="teamButton" onclick="toggleTeamList()">TEAM</button>
+    <div id="introText1">Enjoy!</div>
+
+    <button id="teamButton" onclick="toggleTeamList()"></button>
     <div id="teamList">
         <ul>
-            <li>Mingbao</li>
-            <li>Edward</li>
-            <li>Andy</li>
-            <li>Louis</li>
-            <li>Josh</li>
+            <li>Andy (zixu3@ualberta.ca)</li>
+            <li>Edward (blin1@ualberta.ca)</li>
+            <li>Josh (joshuachui03@ualberta.ca)</li>
+            <li>Louis (xye1@ualberta.ca)</li>
+            <li>Mingbao (mingbao@ualberta.ca)</li>
         </ul>
     </div>
     <button id="startButton" onclick="startAction()">&#128269; Explore</button>
@@ -128,4 +138,3 @@
     </script>
 </body>
 </html>
-
