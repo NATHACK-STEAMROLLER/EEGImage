@@ -1,0 +1,56 @@
+import base64
+import os
+import requests
+import random
+
+engine_id = "stable-diffusion-xl-1024-v1-0"
+api_host = os.getenv('API_HOST', 'https://api.stability.ai')
+api_key = os.getenv("STABILITY_API_KEY")
+
+if api_key is None:
+    print("Missing Stability API key. using mine")
+    
+
+path = '~/EEGImage/EEGImage/generateImage/static/prompt.txt'
+expanded = os.path.expanduser(path)
+with open(expanded, 'r') as f:
+    prompt = f.readline()
+
+response = requests.post(
+    f"{api_host}/v1/generation/{engine_id}/text-to-image",
+    headers={
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    },
+    json={
+        "text_prompts": [
+            {
+                "text": prompt
+            }
+        ],
+        "cfg_scale": 7,
+        "height": 1024,
+        "width": 1024,
+        "samples": 1,
+        "steps": 30,
+    },
+)
+
+if response.status_code != 200:
+    raise Exception("Non-200 response: " + str(response.text))
+
+data = response.json()
+
+r1 = str(random.randint(0, 112200))
+
+path2 = '~/EEGImage/EEGImage/generateImage/static/'
+expanded2 = os.path.expanduser(path2)
+
+for i, image in enumerate(data["artifacts"]):
+    with open(expanded2+f"v1_txt2img_{i}_" + r1 + ".png", "wb") as f:
+        f.write(base64.b64decode(image["base64"]))
+    with open(expanded2+f'cur_img_{i}.txt', 'w') as f:
+        f.write(expanded2+f"v1_txt2img_{i}_" + r1 + ".png")
+
+
