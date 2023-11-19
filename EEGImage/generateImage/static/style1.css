@@ -1,0 +1,101 @@
+body {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  counter-reset: my-count 20;
+  animation: countdown 20s linear 1;
+
+  &::after {
+    content: counter(my-count);
+    font-size: 30em;
+  }
+}
+
+@keyframes countdown {
+  0% {
+    background: hsl(80,100%,20%);
+  }
+  5% {
+    counter-increment: my-count -1;
+    background: hsl(280,100%,20%);
+  }
+  10% {
+    counter-increment: my-count -2;
+    background: hsl(120,100%,20%);
+  }
+  15% {
+    counter-increment: my-count -3;
+    background: hsl(240,100%,20%);
+  }
+  20% {
+    counter-increment: my-count -4;
+    background: hsl(160,100%,20%);
+  }
+
+  25% {
+    counter-increment: my-count -5;
+    background: hsl(200,100%,20%);
+  }
+  30% {
+    counter-increment: my-count -6;
+    background: hsl(300,100%,20%);
+  }
+  35% {
+    counter-increment: my-count -7;
+    background: hsl(60,100%,20%);
+  }
+  40% {
+    counter-increment: my-count -8;
+    background: hsl(260,100%,20%);
+  }
+  45% {
+    counter-increment: my-count -9;
+    background: hsl(100,100%,20%);
+  }
+  50% {
+    counter-increment: my-count -10;
+    background: hsl(220,100%,20%);
+  }
+  55% {
+    counter-increment: my-count -11;
+    background: hsl(140,100%,20%);
+  }
+  60% {
+    counter-increment: my-count -12;
+    background: hsl(180,100%,20%);
+  }
+  65% {
+    counter-increment: my-count -13;
+    background: hsl(70,100%,20%);
+  }
+  70% {
+    counter-increment: my-count -14;
+    background: hsl(290,100%,20%);
+  }
+  75% {
+    counter-increment: my-count -15;
+    background: hsl(130,100%,20%);
+  }
+  80% {
+    counter-increment: my-count -16;
+    background: hsl(230,100%,20%);
+  }
+  85% {
+    counter-increment: my-count -17;
+    background: hsl(190,100%,20%);
+  }
+  90% {
+    counter-increment: my-count -18;
+    background: hsl(170,100%,20%);
+  }
+  95% {
+    counter-increment: my-count -19;
+    background: hsl(90,100%,20%);
+  }
+  100% {
+    counter-increment: my-count -20;
+    background: hsl(270,100%,20%);
+  }
+}

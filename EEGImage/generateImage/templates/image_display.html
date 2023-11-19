@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'style4.css' %}" />
+
+    <title>image_display</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTZ8fGJhY2tncm91bmQlMjBpbWFnZXxlbnwwfHx8fDE3MDAyOTk5MTB8MA&ixlib=rb-4.0.3'); /* Replace 'background.jpg' with your background image URL */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #backButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/1200px-Back_Arrow.svg.png') no-repeat;
+            background-size: contain; /* or cover based on your preference */
+            width: 50px; /* Set the width of the button */
+            height: 50px; /* Set the height of the button */
+            border: none;
+
+        }
+
+        #imageWrapper {
+            text-align: center;
+        }
+
+        #displayedImage {
+            max-width: 700px; /* Adjust the maximum width of the displayed image */
+            max-height: 700px; /* Adjust the maximum height of the displayed image */
+
+        }
+    </style>
+</head>
+<body>
+
+    <button id="backButton" onclick="retry()"></button>
+    <div id="imageWrapper">
+        <img id="displayedImage" src="{{ random_image_url }}" alt="Displayed Image"> <!-- Replace 'image.jpg' with your image URL -->
+    </div>
+
+    <script>
+        function retry() {
+            window.location.href = "{% url 'start_page' %}";
+        }
+    </script>
+</body>
+</html>

@@ -5,19 +5,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'style1.css' %}" />
-  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="{% static 'style3.css' %}" />
+  <title>image_processing</title>
   <style>
     body {
       margin: 0; /* Remove default body margin */
       overflow: hidden;
     }
 
-    /* Add custom styles for the image button */
     #backButton {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: -360px;
+      left: -585px;
       cursor: pointer;
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/1200px-Back_Arrow.svg.png') no-repeat;
       background-size: contain; /* or cover based on your preference */
@@ -28,7 +27,9 @@
   </style>
 </head>
 <body>
-
+    <div class="progress">
+    <div class="color"></div>
+    </div>
   <!-- Add the image button -->
   <button id="backButton" onclick="retry()"></button>
 
@@ -37,11 +38,11 @@
       window.location.href = "{% url 'start_page' %}";
     }
 
-    const countdownDuration = 20;
+    const countdownDuration = 10;
 
     // Function to redirect after countdown
     function redirectToNextPage() {
-      window.location.href = "{% url 'image_processing' %}";
+      window.location.href = "{% url 'image_display' %}";
     }
 
     // Set the countdown timer
