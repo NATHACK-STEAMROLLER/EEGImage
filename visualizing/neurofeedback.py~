@@ -100,7 +100,7 @@ if __name__ == "__main__":
         now = datetime.now()
         start = now.strftime('%H:%M:%S')
         start_sec = int(start[0:2])*3600 + int(start[3:5])*60 + int(start[-2:])
-        end_sec = start_sec + 12
+        end_sec = start_sec + 22
 
         alpha = []
         beta = []

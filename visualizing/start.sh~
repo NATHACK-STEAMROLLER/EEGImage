@@ -5,5 +5,5 @@ osascript -e 'tell app "Terminal"
 end tell'
 
 osascript -e 'tell app "Terminal"
-	do script "conda activate muse_env; sleep 15; cd ~/EEGImage/visualizing; python neurofeedback.py; python draw.py"
+	do script "conda activate muse_env; sleep 15; cd ; python ~/EEGImage/visualizing/neurofeedback.py; python draw.py"
 end tell'

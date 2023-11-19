@@ -5,7 +5,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   counter-reset: my-count 20;
-  animation: countdown 20s linear 1;
+  animation: countdown 40s linear 1;
 
   &::after {
     content: counter(my-count);

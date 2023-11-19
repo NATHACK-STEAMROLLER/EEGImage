@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
@@ -36,13 +37,6 @@ def start_page(request):
     return render(request, 'start_page.html')
 
 def countdown_page(request):
-    return render(request, 'countdown_page.html')
-
-def image_processing(request):
-    return render(request, 'image_processing.html')
-
-
-def image_display(request):
     # Simulate a 5-second countdown
     # for i in range(5, 0, -1):
     #     time.sleep(1)
@@ -53,16 +47,24 @@ def image_display(request):
 
     path = '~/EEGImage/EEGImage/generateImage/static/cur_img.txt'
     expanded = os.path.expanduser(path)
-    #with open(expanded, 'r') as f:
+    # with open(expanded, 'r') as f:
     #    cur_img_name = f.readline()
     # Generate a random image (replace this with your logic)
 
-    random_image_url = "https://picsum.photos/200/300"  # Example URL
 
-    # add to database
-    image = Image(image_url=random_image_url)
-    image.save()
-    return render(request, 'image_display.html', {'random_image_url': random_image_url})
+    return render(request, 'countdown_page.html')
+
+def image_processing(request):
+    return render(request, 'image_processing.html')
+
+
+def image_display(request):
+    # image_url = "{% static 'v1_txt2img.png' %}"  # Example URL
+    #
+    # # add to database
+    # image = Image(image_url=image_url)
+    # image.save()
+    return render(request, 'image_display.html')#, {'random_image_url': image_url})
 
 
 def history(request):
