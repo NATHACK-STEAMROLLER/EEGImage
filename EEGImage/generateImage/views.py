@@ -34,8 +34,9 @@ import requests
 
 def start_page(request):
     return render(request, 'start_page.html')
-
 def countdown_page(request):
+    return render(request, 'coutdown_page.html')
+def image_display(request):
     # Simulate a 5-second countdown
     # for i in range(5, 0, -1):
     #     time.sleep(1)
