@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
+from .models import Image
+import random
+import time
 import requests
-
 # # Create your views here.
 # def index(request):
 #     # Render the index.html template
@@ -25,9 +28,7 @@ import requests
 #     return HttpResponse(template.render(context, request))
 
 
-from django.shortcuts import render
-import random
-import time
+
 
 def start_page(request):
     return render(request, 'start_page.html')
@@ -38,6 +39,17 @@ def countdown_page(request):
     #     time.sleep(1)
 
     # Generate a random image (replace this with your logic)
-    random_image_url = "https://picsum.photos/id/237/200/300"  # Example URL
 
+    random_image_url = "https://picsum.photos/200/300"  # Example URL
+
+    
+    # add to database
+    image = Image(image_url=random_image_url)
+    image.save()
     return render(request, 'countdown_page.html', {'random_image_url': random_image_url})
+
+def history(request):
+    images = Image.objects.all().values()
+    template = loader.get_template('history.html')
+    context = {'images': images}
+    return HttpResponse(template.render(context, request))

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>History</h1>
+  
+<ul>
+  {% for x in images %}
+  <img src="{{ x.image_url }}" alt="history_image">
+  {% endfor %}
+</ul>
+<button onclick="returnBack()">Return</button>
+<script>
+    function returnBack() {
+        window.location.href = "{% url 'start_page' %}";
+    }
+</script>
+</body>
+</html>
