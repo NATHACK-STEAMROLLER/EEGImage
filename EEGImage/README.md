@@ -1,4 +1,4 @@
-# EEGImage --Backend
+# VisMind
 ## Quickly Start
 1 download or clone this repo to your root (e.g. ~\EEGImage)
 
