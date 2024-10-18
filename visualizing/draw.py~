@@ -9,7 +9,7 @@ api_key = os.getenv("STABILITY_API_KEY")
 
 if api_key is None:
     print("Missing Stability API key. using mine")
-    api_key = 'sk-H4Q6BoE1VDNJ3pa9dc68rj4RQUC35ckMEwbqI9oRYA7gMuMz'    
+	api_key = "sk-H4Q6BoE1VDNJ3pa9dc68rj4RQUC35ckMEwbqI9oRYA7gMuMz"
 
 path = '~/EEGImage/EEGImage/generateImage/static/prompt.txt'
 expanded = os.path.expanduser(path)

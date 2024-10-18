@@ -184,25 +184,117 @@ if __name__ == "__main__":
 
         path = '~/EEGImage/EEGImage/generateImage/static/prompt.txt'
         expanded = os.path.expanduser(path)
+
+        cozy_words = [
+            'warm blanket', 'soft pillow', 'fuzzy slippers', 'glowing fireplace', 'gentle rain', 
+            'candlelit dinner', 'fluffy cat', 'snug sweater', 'peaceful garden', 'quiet library',
+            'cozy cabin', 'soft music', 'velvet armchair', 'silk sheets', 'plush rug',
+            'sunny meadow', 'breezy porch', 'calm lake', 'starry night', 'autumn leaves',
+            'buttery popcorn', 'hot cocoa', 'freshly baked bread', 'lavender fields', 'sunset glow',
+            'morning dew', 'whispering pines', 'cherry blossoms', 'honeyed tea', 'gentle breeze',
+            'rustling leaves', 'soft clouds', 'mellow afternoon', 'tranquil stream', 'serene beach',
+            'quiet nook', 'dreamy hammock', 'velvet curtains', 'silken robe', 'peaceful retreat',
+            'sunlit room', 'cozy nook', 'warm bath', 'soft quilt', 'gentle waves',
+            'lush garden', 'quiet countryside', 'blooming flowers', 'golden sunrise', 'calm forest'
+        ]        
+
+        horror_scenes = [
+            'eerie shadow', 'haunted mansion', 'creepy doll', 'sinister whisper', 'ghostly apparition',
+            'dark forest', 'abandoned asylum', 'blood-curdling scream', 'chilling fog', 'ominous silence',
+            'macabre ritual', 'spooky graveyard', 'terrifying nightmare', 'ghastly figure', 'menacing laughter',
+            'cursed artifact', 'phantom presence', 'dreadful curse', 'nightmarish vision', 'frightening howl',
+            'horrific monster', 'sinister grin', 'gory scene', 'demonic possession', 'vampiric gaze',
+            'zombie apocalypse', 'witching hour', 'haunting melody', 'bone-chilling cold', 'spectral glow',
+            'murderous intent', 'evil spirit', 'forbidding castle', 'bloodthirsty creature', 'shadowy alley',
+            'terrifying legend', 'grisly discovery', 'unholy ground', 'malevolent force', 'creepy crypt',
+            'dark omen', 'sinister plot', 'haunted woods', 'eerie silence', 'ghostly wail',
+            'chilling presence', 'ominous storm', 'macabre dance', 'spine-tingling fear', 'dreadful secret'
+        ]
+
+        cute_adj = [
+            'adorable', 'charming', 'delightful', 'endearing', 'lovable', 
+            'sweet', 'precious', 'darling', 'cute', 'cuddly', 
+            'playful', 'cheerful', 'joyful', 'radiant', 'sparkling', 
+            'bubbly', 'vivacious', 'jolly', 'gleeful', 'merry', 
+            'sunny', 'blissful', 'graceful', 'elegant', 'fancy', 
+            'dapper', 'snazzy', 'spiffy', 'neat', 'tidy', 
+            'polished', 'refined', 'sophisticated', 'stylish', 'trendy', 
+            'fashionable', 'classy', 'posh', 'chic', 'snappy', 
+            'sprightly', 'zesty', 'peppy', 'lively', 'animated', 
+            'spirited', 'energetic', 'dynamic', 'vibrant', 'zippy'
+        ]
+
+        relax_adj = [
+            'calm', 'peaceful', 'serene', 'tranquil', 'soothing',
+            'quiet', 'restful', 'untroubled', 'composed', 'placid',
+            'gentle', 'mellow', 'mild', 'relaxed', 'easygoing',
+            'laid-back', 'unruffled', 'unperturbed', 'cool', 'collected',
+            'unflustered', 'unagitated', 'unworried', 'unconcerned', 'unfazed',
+            'unbothered', 'unmoved', 'unshaken', 'unexcited', 'unhassled',
+            'unpressured', 'unhurried', 'unrushed', 'unfrenzied', 'unfretful',
+            'unvexed', 'unperturbed', 'unruffled', 'untroubled', 'unflappable',
+            'unflustered', 'unagitated', 'unworried', 'unconcerned', 'unfazed',
+            'unbothered', 'unmoved', 'unshaken', 'unexcited', 'unhassled'
+        ]
+
+        stress_adj = [
+            'anxious', 'tense', 'nervous', 'worried', 'agitated',
+            'frantic', 'overwhelmed', 'frazzled', 'stressed', 'pressured',
+            'harried', 'strained', 'uptight', 'jittery', 'fretful',
+            'restless', 'uneasy', 'distressed', 'troubled', 'panicked',
+            'alarmed', 'fearful', 'apprehensive', 'distraught', 'perturbed',
+            'disconcerted', 'discomposed', 'flustered', 'rattled', 'shaken',
+            'unnerved', 'disquieted', 'disturbed', 'unsettled', 'jumpy',
+            'edgy', 'twitchy', 'hyper', 'keyed-up', 'wired',
+            'stiff', 'taut', 'rigid', 'inflexible', 'inhibited',
+            'constrained', 'confined', 'restricted', 'compressed', 'compressed'
+        ]
+
+        stressful_noun = [
+            'deadline', 'traffic jam', 'earthquake', 'tornado', 'hurricane',
+            'flood', 'blizzard', 'heatwave', 'drought', 'wildfire',
+            'avalanche', 'tsunami', 'volcano', 'storm', 'hailstorm',
+            'cyclone', 'landslide', 'thunderstorm', 'lightning', 'fog',
+            'smog', 'pollution', 'noise', 'crowd', 'chaos',
+            'conflict', 'argument', 'debate', 'crisis', 'emergency',
+            'accident', 'injury', 'illness', 'disease', 'infection',
+            'contagion', 'epidemic', 'pandemic', 'quarantine', 'lockdown',
+            'evacuation', 'fire', 'explosion', 'collapse', 'blackout',
+            'shortage', 'scarcity', 'famine', 'poverty', 'homelessness'
+        ]
+
+        cute_noun = [
+            'kitten', 'puppy', 'bunny', 'teddy bear', 'duckling',
+            'chick', 'fawn', 'cub', 'joey', 'calf',
+            'lamb', 'foal', 'piglet', 'hedgehog', 'koala',
+            'panda', 'penguin', 'owl', 'parrot', 'goldfish',
+            'hamster', 'gerbil', 'guinea pig', 'chinchilla', 'ferret',
+            'onesie', 'mittens', 'booties', 'beanie', 'scarf',
+            'smile', 'giggle', 'wink', 'blush', 'dimples',
+            'heart', 'star', 'rainbow', 'butterfly', 'ladybug',
+            'flower', 'cupcake', 'cookie', 'marshmallow', 'lollipop',
+            'balloon', 'ribbon', 'bow', 'button', 'pebble'
+        ]
+
         with open(expanded, 'w') as f:
             if mean_relax >= 0.45:
-                f.write(random.choice(['blue sky, ', 'blue ocean, ', 'mountain and sweet breeze, ', 'warm house, ']))
+                f.write(random.choice(cozy_words))
             else:
-                f.write(random.choice(['dark place, ', 'cold and unpleasant winter, ', 'lurking beast, ']))
+                f.write(random.choice(horror_scenes))
 
             if mean_theta + mean_alpha >= 1.1:
-                f.write(random.choice(['relax, ', 'calm, ', 'creative state, ', 'comfortable, ', 'moon, ']))
-                f.write(random.choice(['bright, ', 'cute animal, ', 'cute kids having fun, ', 'smiling face, ']))
+                f.write(random.choice(cute_adj))
+                f.write(random.choice(relax_adj))
             else:
-                f.write(random.choice(['uncomfortable, ', 'distracted, ', 'unpleasant, ', 'embarrassing, ']))
-                f.write(random.choice(['cliff, ', 'windy, ', 'cloudy, ', 'panic, ', 'sad, ', 'sigh, ', 'fox, ']))
+                f.write(random.choice(stress_adj))
+                f.write(random.choice(stressful_noun))
 
             if mean_beta + mean_delta >= 1.1:
-                f.write(random.choice(['alert, ', 'stressful, ', 'anxious, ', 'busy, ']))
-                f.write(random.choice(['jail, ', 'dull, ', 'dangerous, ', 'raining, ', 'thundering, ', 'wolves, ']))
+                f.write(random.choice(stress_adj))
+                f.write(random.choice(stressful_noun))
             else:
-                f.write(random.choice(['cozy, ', 'hoodie,', 'snowing, ']))
-                f.write(random.choice(['rabbit, ', 'hamster, ', 'squirrel, ']))
+                f.write(random.choice(cozy_words))
+                f.write(random.choice(cute_noun))
 
     except KeyboardInterrupt:
         print('Closing!')
